@@ -1,0 +1,1 @@
+Aquí están los avances de la parte de gurobipy de la entrega 2.

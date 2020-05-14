@@ -1,4 +1,6 @@
 from gurobipy import GRB, Model, quicksum
+import pandas
+
 
 # Creamos el modelo
 model = Model('HawaiiChile')
@@ -43,3 +45,5 @@ S = model.addVars(, GRB.BINARY)
 
 #Actualizamos el modelo
 model.update()
+
+#Falta agregar cosas :)

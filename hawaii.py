@@ -198,3 +198,9 @@ model.addConstrs(
         for t in T[:4]
     )
 )
+
+
+# Función Objetivo
+obj = quicksum(Y[i, a, t] * bb_a[a] for a in tipos_de_proyectos[:12] for i in N for t in T) - (quicksum(ch_h[h] * LH[i, h, t] for h in H for t in T for i in N) + quicksum(ck_k * LK[i, k, t] for k in K for t in T for i in N))
+
+model.setObjective(obj, GRB.MAXIMIZE)

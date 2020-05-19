@@ -40,9 +40,6 @@ test_tamaño_bodega = dfs[tamaño_bodega]
 for row in test_tamaño_bodega.itertuples():
     volumen_bodega = row[1]
 
-print(volumen_bodega)
-print()
-
 
 ###### Herramientas
 test_herramientas = dfs[info_herramientas]
@@ -52,9 +49,6 @@ for row in test_herramientas.itertuples():
     herramientas[row[1]]['costos'] = row[2]
     herramientas[row[1]]['volumen'] = row[3]
 
-print(herramientas)
-print()
-
 ###### Insumos
 test_insumos = dfs[info_insumos]
 
@@ -63,27 +57,19 @@ for row in test_insumos.itertuples():
     herramientas[row[1]]['costos'] = row[2]
     herramientas[row[1]]['volumen'] = row[3]
 
-print(herramientas)
-print()
 
 ###### Trabajadores
 test_trabajadores = dfs[info_trabajadores]
 trabajadores = write_dict(test_trabajadores, 'cantidad')
-print(trabajadores)
-print()
 
 
 ###### Cantidad de insumos en bodega
 test_stock_insumos = dfs[cant_insumos_bodega]
 stock_insumos = write_dict(test_stock_insumos, 'cantidad')
-print(stock_insumos)
-print()
 
 ###### Cantidad de herramientas en bodega
 test_stock_herramientas = dfs[cant_herramientas_bodega]
 stock_herramientas = write_dict(test_stock_herramientas, 'cantidad')
-print(stock_herramientas)
-print()
 
 ###### Herramientas, insumos, trabajadores, ganancias y tiempo para ambos tipos de proyectos
 proyectos = {i: {'herramientas': {}, 'insumos': {}, 'trabajadores': {}} for i in range(1, 25)}
@@ -121,7 +107,6 @@ for i, row in enumerate(test_trabajadores_proyectos.itertuples()):
         
 test_ganancias = dfs[ganancias_por_proyecto]
 for i, row in enumerate(test_ganancias.itertuples()):
-    print(i, row)
     if i == 1:
         for j in range(1, 13):
             proyectos[j]['ganancias'] = row[j + 1]
@@ -138,9 +123,3 @@ for i, row in enumerate(test_tiempo_proyectos.itertuples()):
         for j in range(1, 13):
             proyectos[j]['tiempo'] = row[j + 1]
             proyectos[j + 12]['tiempo'] = row[j + 1]
-
-for key, value in proyectos.items():
-    print(key, value['tiempo'])
-
-
-
